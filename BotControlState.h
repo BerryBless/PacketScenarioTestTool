@@ -9,7 +9,7 @@ class BotControlState : public ControlState
 public:
 	BotControlState(ControlStateID control_state_id) : ControlState(control_state_id){}
 
-	// »ó¼Ó
+	// ìƒì†
 	void			Stop() override;
 	void			OnEnter() override { std::cout << "BotControlState::OnEnter()"; }
 	void			OnExit() override { std::cout << "BotControlState::OnExit()"; }
@@ -18,15 +18,16 @@ public:
 public:
 	BotController*	GetController() { return controller_; }
 
-	// ÄÁÆ®·Ñ·¯¿¡ ºÙÈú¶§ È£Ãâ
+	// ì»¨íŠ¸ë¡¤ëŸ¬ì— ë¶™íë•Œ í˜¸ì¶œ
 	virtual void	OnAttached() {}
-	// ÄÁÆ®·Ñ·¯¿¡ »èÁ¦ÇÒ¶§ È£Ãâ
+	// ì»¨íŠ¸ë¡¤ëŸ¬ì— ì‚­ì œí• ë•Œ í˜¸ì¶œ
 	virtual void	OnDetached() {}
 
 public:
-	// ÄÁÆ®·Ñ·¯¿¡ ÀÌ ³ëµå ³Ö±â
+	// ì»¨íŠ¸ë¡¤ëŸ¬ì— ì´ ë…¸ë“œ ë„£ê¸°
 	virtual bool AttachNode(BotController* controller, ACTION_ID id, bool attach_action = true);
-	bool AttachAction(ACTION_ID id);
+	// ì„œë¸Œ ì—‘ì…˜ ì¶”ê°€
+	bool AttachSubAction(ACTION_ID id);
 
 protected:
 

@@ -15,7 +15,9 @@ public:
 	BotAction_A(ControlStateID control_state_id) : BotControllAction(control_state_id) {}
 
 public:
-	void		OnAttached() override { printf_s("state_id : %d ) BotAction_A::OnAttached()\n", GetControlStateID()); }
+	void		OnAttached() override {
+		printf_s("state_id : %d ) BotAction_A::OnAttached(), Depth %d\n", GetControlStateID(), GetDepth());
+	}
 	void		OnDetached() override { printf_s("state_id : %d ) BotAction_A::OnDetached()\n", GetControlStateID()); }
 	void		OnEnter() override { printf_s("state_id : %d ) BotAction_A::OnEnter()\n", GetControlStateID()); }
 	void		OnExit() override;

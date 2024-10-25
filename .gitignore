@@ -30,3 +30,11 @@
 *.exe
 *.out
 *.app
+*.tlog
+*.tlog
+*.tlog
+*.iobj
+*.iobj
+/x64/Release
+/x64
+/x64/Release/PacketSc.dc901481.tlog
