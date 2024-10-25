@@ -10,6 +10,9 @@
 #include <optional>
 #include <chrono>
 #include <iostream>
+#include <Windows.h>
+#include <list>
+#include "Define.h"
 
 #ifdef min
 #undef min

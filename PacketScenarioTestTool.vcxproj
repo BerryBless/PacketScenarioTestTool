@@ -141,10 +141,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="BotControllAction.h" />
+    <ClInclude Include="BotController.h" />
+    <ClInclude Include="BotControlState.h" />
+    <ClInclude Include="ControlState.h" />
+    <ClInclude Include="Define.h" />
     <ClInclude Include="Main.h" />
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="BotControllAction.cpp" />
+    <ClCompile Include="BotController.cpp" />
+    <ClCompile Include="BotControlState.cpp" />
+    <ClCompile Include="ControlState.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="pch.cpp" />
   </ItemGroup>

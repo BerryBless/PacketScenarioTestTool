@@ -1,10 +1,14 @@
-﻿  Main.cpp
+﻿  BotControllAction.cpp
+  The contents of <string_view> are available only with C++17 or later.
+  The contents of <ranges> are available only with C++20 or later.
+  The contents of <optional> are available only with C++17 or later.
+  Main.cpp
   The contents of <string_view> are available only with C++17 or later.
   The contents of <ranges> are available only with C++20 or later.
   The contents of <optional> are available only with C++17 or later.
   코드를 생성하고 있습니다.
-  10 of 10 functions (100.0%) were compiled.
-    9 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
+  8 of 149 functions ( 5.4%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    14 functions had inline decision re-evaluated but remain unchanged
   코드를 생성했습니다.
   PacketScenarioTestTool.vcxproj -> E:\popol\TestTool\PacketScenarioTestTool\x64\Release\PacketScenarioTestTool.exe
