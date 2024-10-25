@@ -19,6 +19,9 @@
     <Filter Include="Action">
       <UniqueIdentifier>{074c8094-a80a-4152-b3b8-a1b927da538d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Bot">
+      <UniqueIdentifier>{08bba44d-b2da-41ae-a440-bbec9a1848c6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -28,13 +31,15 @@
     <ClCompile Include="ControlState.cpp">
       <Filter>lib\ControlScript</Filter>
     </ClCompile>
-    <ClCompile Include="BotControlState.cpp">
-      <Filter>lib\ControlScript</Filter>
+    <ClCompile Include="BotControlAction.cpp">
+      <Filter>Bot</Filter>
     </ClCompile>
     <ClCompile Include="BotController.cpp">
-      <Filter>lib\ControlScript</Filter>
+      <Filter>Bot</Filter>
     </ClCompile>
-    <ClCompile Include="BotControllAction.cpp" />
+    <ClCompile Include="BotControlState.cpp">
+      <Filter>Bot</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
@@ -47,12 +52,14 @@
     <ClInclude Include="Define.h">
       <Filter>lib</Filter>
     </ClInclude>
+    <ClInclude Include="BotControlAction.h">
+      <Filter>Bot</Filter>
+    </ClInclude>
     <ClInclude Include="BotControlState.h">
-      <Filter>lib\ControlScript</Filter>
+      <Filter>Bot</Filter>
     </ClInclude>
     <ClInclude Include="BotController.h">
-      <Filter>lib\ControlScript</Filter>
+      <Filter>Bot</Filter>
     </ClInclude>
-    <ClInclude Include="BotControllAction.h" />
   </ItemGroup>
 </Project>

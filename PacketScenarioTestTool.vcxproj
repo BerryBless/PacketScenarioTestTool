@@ -141,7 +141,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="BotControllAction.h" />
+    <ClInclude Include="BotControlAction.h" />
     <ClInclude Include="BotController.h" />
     <ClInclude Include="BotControlState.h" />
     <ClInclude Include="ControlState.h" />
@@ -150,7 +150,7 @@
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="BotControllAction.cpp" />
+    <ClCompile Include="BotControlAction.cpp" />
     <ClCompile Include="BotController.cpp" />
     <ClCompile Include="BotControlState.cpp" />
     <ClCompile Include="ControlState.cpp" />

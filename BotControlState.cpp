@@ -1,8 +1,6 @@
 #include "BotControlState.h"
 #include "BotController.h"
 
-// 하드코딩 테스트용
-#include "BotControllAction.h"
 
 void BotControlState::Stop()
 {
@@ -57,18 +55,18 @@ bool BotControlState::AttachSubAction(ACTION_ID id)
 {
 	// 테스트용 하드코딩
 	// 펙토리로 만들어야함
-	BotAction_A* next_action = new BotAction_A(id);
-	
-	if (next_action->AttachNode(controller_, id, false) == false)
-	{
-		SAFE_DELETE(next_action);
-		return false;
-	}
-
-	if (AddToSubControl(next_action) == false)
-	{
-		SAFE_DELETE(next_action);
-		return false;
-	}
+// 	BotControlState* next_action = new BotAction_A(id);
+// 	
+// 	if (next_action->AttachNode(controller_, id, false) == false)
+// 	{
+// 		SAFE_DELETE(next_action);
+// 		return false;
+// 	}
+// 
+// 	if (AddToSubControl(next_action) == false)
+// 	{
+// 		SAFE_DELETE(next_action);
+// 		return false;
+// 	}
 	return true;
 }

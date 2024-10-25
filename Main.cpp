@@ -1,6 +1,4 @@
-﻿#include "Main.h"
-
-#include "BotControllAction.h"
+#include "Main.h"
 
 int main()
 {
