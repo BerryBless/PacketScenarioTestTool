@@ -6,7 +6,7 @@
 class BotController : public BotControlState
 {
 public:
-	BotController(ControlStateID control_state_id) : BotControlState(control_state_id) {}
+	BotController() : BotControlState(ACTION_NODE_TYPE::Controller) {}
 
 public:
 	// 상속
@@ -21,6 +21,6 @@ public:
 public:
 
 	// 컨트롤러에 다음 액션 추가
-	void AttachAction(ACTION_ID id);
+	void AttachAction(ACTION_NODE_TYPE id);
 };
 

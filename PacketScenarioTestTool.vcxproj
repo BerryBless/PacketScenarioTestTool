@@ -142,6 +142,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="BotControlAction.h" />
+    <ClInclude Include="BotControlActionFactory.h" />
     <ClInclude Include="BotController.h" />
     <ClInclude Include="BotControlState.h" />
     <ClInclude Include="ControlState.h" />
@@ -151,6 +152,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BotControlAction.cpp" />
+    <ClCompile Include="BotControlActionFactory.cpp" />
     <ClCompile Include="BotController.cpp" />
     <ClCompile Include="BotControlState.cpp" />
     <ClCompile Include="ControlState.cpp" />

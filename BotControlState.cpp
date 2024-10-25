@@ -1,6 +1,6 @@
 #include "BotControlState.h"
 #include "BotController.h"
-
+#include "BotControlActionFactory.h"
 
 void BotControlState::Stop()
 {
@@ -27,7 +27,7 @@ bool BotControlState::AddToSubControl(ControlState* control_state)
     return true;
 }
 
-bool BotControlState::AttachNode(BotController* controller, ACTION_ID id, bool attach_action)
+bool BotControlState::AttachNode(BotController* controller, ACTION_NODE_TYPE id, bool attach_action)
 {
 
 	if (controller == nullptr)
@@ -51,22 +51,20 @@ bool BotControlState::AttachNode(BotController* controller, ACTION_ID id, bool a
 	return true;
 }
 
-bool BotControlState::AttachSubAction(ACTION_ID id)
+bool BotControlState::AttachSubAction(ACTION_NODE_TYPE id)
 {
-	// 테스트용 하드코딩
-	// 펙토리로 만들어야함
-// 	BotControlState* next_action = new BotAction_A(id);
-// 	
-// 	if (next_action->AttachNode(controller_, id, false) == false)
-// 	{
-// 		SAFE_DELETE(next_action);
-// 		return false;
-// 	}
-// 
-// 	if (AddToSubControl(next_action) == false)
-// 	{
-// 		SAFE_DELETE(next_action);
-// 		return false;
-// 	}
+ 	BotControlState* next_action = BotControlActionFactory::CreateState(id);
+ 	
+ 	if (next_action->AttachNode(controller_, id, false) == false)
+ 	{
+		BotControlActionFactory::DestoryState(next_action);
+ 		return false;
+ 	}
+ 
+ 	if (AddToSubControl(next_action) == false)
+ 	{
+		BotControlActionFactory::DestoryState(next_action);
+ 		return false;
+ 	}
 	return true;
 }

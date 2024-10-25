@@ -4,5 +4,4 @@
 void BotAction_A::OnExit()
 {
 	printf_s("state_id : %d ) BotAction_A::OnExit()\n", GetControlStateID());
-	controller_->AttachAction(GetControlStateID() + 10);
 }

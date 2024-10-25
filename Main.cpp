@@ -2,10 +2,13 @@
 
 int main()
 {
-	BotController test(1);
+	BotController test;
 
 	test.OnEnter();
-	test.AttachAction(10);
+	test.AttachAction(ACTION_NODE_TYPE::Action_A);
+	test.AttachAction(ACTION_NODE_TYPE::Action_B);
+	test.AttachAction(ACTION_NODE_TYPE::Action_A);
+
 	while (true)
 	{
 		ControlState::EStatus status =  test.OnUpdate(1);

@@ -5,14 +5,26 @@
 class BotControllAction : public BotControlState
 {
 public:
-	BotControllAction(ControlStateID control_state_id) : BotControlState(control_state_id) {}
+	BotControllAction(ACTION_NODE_TYPE node_type) : BotControlState(node_type) {}
 };
 
 
-class BotAction_A : public BotControllAction
+template<ACTION_NODE_TYPE TNodeType>
+class TBotControllAction : public BotControllAction
 {
 public:
-	BotAction_A(ControlStateID control_state_id) : BotControllAction(control_state_id) {}
+	static const ACTION_NODE_TYPE cNodeType = TNodeType;//ACTION_NODE_TYPE::Invalid;
+
+	TBotControllAction() : BotControllAction(cNodeType) {}
+
+
+	void	OnEnter() override { LOG_INFO("OnEnter()"); }
+	void	OnExit() override { LOG_INFO("OnExit()";) }
+};
+
+
+class BotAction_A : public TBotControllAction<ACTION_NODE_TYPE::Action_A>
+{
 
 public:
 	void		OnAttached() override {
@@ -33,10 +45,8 @@ private:
 };
 
 
-class BotAction_B : public BotControllAction
+class BotAction_B : public TBotControllAction<ACTION_NODE_TYPE::Action_B>
 {
-public:
-	BotAction_B(ControlStateID control_state_id) : BotControllAction(control_state_id) {}
 
 public:
 	void		OnAttached() override { printf_s("state_id : %d ) BotAction_B::OnAttached()\n", GetControlStateID()); }
@@ -44,7 +54,6 @@ public:
 	void		OnEnter() override { printf_s("state_id : %d ) BotAction_B::OnEnter()\n", GetControlStateID()); }
 	void		OnExit() override {
 		printf_s("state_id : %d ) BotAction_B::OnExit()\n", GetControlStateID());
-	//	controller_->AttachAction(new BotAction_B(GetControlStateID() + 2));
 	}
 	EStatus		OnUpdate(DWORD tick_diff) override {
 		Sleep(100);

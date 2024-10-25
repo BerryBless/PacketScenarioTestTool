@@ -7,7 +7,7 @@ class BotController;
 class BotControlState : public ControlState
 {
 public:
-	BotControlState(ControlStateID control_state_id) : ControlState(control_state_id){}
+	BotControlState(ACTION_NODE_TYPE state_node) : ControlState(static_cast<ControlStateID>(state_node)){}
 
 	// 상속
 	void			Stop() override;
@@ -25,9 +25,9 @@ public:
 
 public:
 	// 컨트롤러에 이 노드 넣기
-	virtual bool AttachNode(BotController* controller, ACTION_ID id, bool attach_action = true);
+	virtual bool AttachNode(BotController* controller, ACTION_NODE_TYPE id, bool attach_action = true);
 	// 서브 엑션 추가
-	bool AttachSubAction(ACTION_ID id);
+	bool AttachSubAction(ACTION_NODE_TYPE id);
 
 protected:
 
