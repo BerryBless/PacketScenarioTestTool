@@ -3,7 +3,7 @@
 #define SAFE_DELETE(ptr) do{\
 if(ptr != nullptr) \
 { \
-	free(ptr); ptr = nullptr; }\
+	delete(ptr); ptr = nullptr; }\
 } while (0)
 
 // TODO 크래쉬, 에레벨 나누기, 파라미터 받기
@@ -13,3 +13,5 @@ if(ptr != nullptr) \
 
 
 typedef int BOT_STATE_ID;
+typedef int ACTION_ID;
+

@@ -24,6 +24,9 @@ public:
 	virtual void	OnDetached() {}
 
 public:
+	// 컨트롤러에 이 노드 넣기
+	virtual bool AttachNode(BotController* controller, ACTION_ID id, bool attach_action = true);
+	bool AttachAction(ACTION_ID id);
 
 protected:
 

@@ -59,13 +59,14 @@ bool ControlState::AddToSubControl(ControlState* control_state)
 	if (control_state == nullptr)
 	{
 		LOG_ERROR("AddToSubControl  control_state == nullptr");
+		SetStatus(ControlState::EStatus::SystemError);
 		return false;
 	}
 
 	control_state->SetParent(this);
 	sub_control_.push_back(control_state);
 
-	return false;
+	return true;
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////

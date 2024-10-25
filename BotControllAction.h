@@ -18,9 +18,7 @@ public:
 	void		OnAttached() override { printf_s("state_id : %d ) BotAction_A::OnAttached()\n", GetControlStateID()); }
 	void		OnDetached() override { printf_s("state_id : %d ) BotAction_A::OnDetached()\n", GetControlStateID()); }
 	void		OnEnter() override { printf_s("state_id : %d ) BotAction_A::OnEnter()\n", GetControlStateID()); }
-	void		OnExit() override {
-		printf_s("state_id : %d ) BotAction_A::OnExit()\n", GetControlStateID());
-	}
+	void		OnExit() override;
 	EStatus		OnUpdate(DWORD tick_diff) override { 
 		Sleep(100);
 		printf_s("state_id : %d ) BotAction_A::OnUpdate() count = %d\n", GetControlStateID(), cnt); 
@@ -44,6 +42,7 @@ public:
 	void		OnEnter() override { printf_s("state_id : %d ) BotAction_B::OnEnter()\n", GetControlStateID()); }
 	void		OnExit() override {
 		printf_s("state_id : %d ) BotAction_B::OnExit()\n", GetControlStateID());
+	//	controller_->AttachAction(new BotAction_B(GetControlStateID() + 2));
 	}
 	EStatus		OnUpdate(DWORD tick_diff) override {
 		Sleep(100);

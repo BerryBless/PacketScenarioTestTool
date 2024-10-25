@@ -7,9 +7,7 @@ int main()
 	BotController test(1);
 
 	test.OnEnter();
-	test.AddToSubControl(new BotAction_A(1));
-	test.AddToSubControl(new BotAction_B(2));
-
+	test.AttachAction(10);
 	while (true)
 	{
 		ControlState::EStatus status =  test.OnUpdate(1);
