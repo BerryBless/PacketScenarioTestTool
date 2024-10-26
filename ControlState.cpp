@@ -3,7 +3,7 @@
 ControlState::~ControlState()
 {
 	RemoveAllSubControl();
-	SAFE_DELETE(variable_ptr);
+	SAFE_DELETE(variable_ptr_);
 }
 ////////////////////////////////////////////////////////////////////////////////////////
 // OnUpdate
@@ -36,7 +36,7 @@ ControlState::EStatus ControlState::OnEvent(ControlEvent* control_event)
 		return EStatus::Completed;
 
 
-// Sub Control ¸®½ºÆ® ¼øÈ¸ÇÏ¸ç ÀÌº¥Æ® Àû¿ë ÇÒ¶§
+// Sub Control ë¦¬ìŠ¤íŠ¸ ìˆœíšŒí•˜ë©° ì´ë²¤íŠ¸ ì ìš© í• ë•Œ
 // 	for (auto sub_control_iter = sub_control_.begin(); sub_control_iter != sub_control_.end(); ++sub_control_iter)
 // 	{
 // 		if (EStatus::Activated == sub_control_iter->GetStatus() || EStatus::Blocked == sub_control_iter->GetStatus())
@@ -45,7 +45,7 @@ ControlState::EStatus ControlState::OnEvent(ControlEvent* control_event)
 // 		}
 // 	}
 
-	// Å¥Ã³·³ ¾µ¶§
+	// íì²˜ëŸ¼ ì“¸ë•Œ
 	auto sub_control_iter = sub_control_.begin();
 
 	return (*sub_control_iter)->OnEvent(control_event);
@@ -78,22 +78,22 @@ ControlState::EStatus ControlState::UpdateSubControl(DWORD tick_diff)
 		return EStatus::Completed;
 
 	auto sub_control_iter = sub_control_.begin();
-	// Ã¹ ¼­ºêÄÁÆ®·ÑÀÌ ¿Ï·áµÇ¾ú´ÂÁö È®ÀÎ
+	// ì²« ì„œë¸Œì»¨íŠ¸ë¡¤ì´ ì™„ë£Œë˜ì—ˆëŠ”ì§€ í™•ì¸
 	while (sub_control_iter != sub_control_.end())
 	{
 		ControlState* sub_control_ptr = nullptr;
 		sub_control_ptr = (*sub_control_iter);
 		if (sub_control_ptr == nullptr)
 		{
-			// ºñ¾îÀÖ´Âµ¥ Å¥¿¡ µé¾î°¡ÀÖ´Ù??
+			// ë¹„ì–´ìˆëŠ”ë° íì— ë“¤ì–´ê°€ìˆë‹¤??
 			LOG_ERROR("UpdateSubControl  sub_control_ptr == nullptr");
 			break;
 		}
 
 		if (sub_control_ptr->IsStatus(EStatus::Completed) || sub_control_ptr->IsStatus(EStatus::Failed))
 		{
-			// ¼­ºê ÄÁÆ®·Ñ ¿Ï·á
-			// Á¾·á Ã³¸®ÈÄ free
+			// ì„œë¸Œ ì»¨íŠ¸ë¡¤ ì™„ë£Œ
+			// ì¢…ë£Œ ì²˜ë¦¬í›„ free
 			sub_control_ptr->Stop();
 			SAFE_DELETE(sub_control_ptr);
 			sub_control_iter = sub_control_.erase(sub_control_iter);
@@ -107,74 +107,74 @@ ControlState::EStatus ControlState::UpdateSubControl(DWORD tick_diff)
 		return EStatus::Completed;
 
 
-	// ½ÃÀÛ
+	// ì‹œì‘
 	(*sub_control_iter)->Start();
 
 	EStatus status = (*sub_control_iter)->GetStatus();
 	switch (status)
 	{
 	case ControlState::EStatus::Activated:
-		// ¼øÇ×Áß~~
+		// ìˆœí•­ì¤‘~~
 		break;
 	case ControlState::EStatus::Completed:
 	case ControlState::EStatus::Failed:
-		// ¿Ï·áµÈ »óÅÂ
+		// ì™„ë£Œëœ ìƒíƒœ
 	{
 		ControlState* sub_control_ptr = nullptr;
 		sub_control_ptr = (*sub_control_iter);
 
-		// Á¾·á Ã³¸®ÈÄ free
+		// ì¢…ë£Œ ì²˜ë¦¬í›„ free
 		sub_control_ptr->Stop();
 		SAFE_DELETE(sub_control_ptr);
 		sub_control_iter = sub_control_.erase(sub_control_iter);
 
 		if (sub_control_.empty() == false)
 		{
-			// ´ÙÀ½ ¼­ºêÄÁÆ®·ÑÀÌ ÀÖ´Â°æ¿ì
+			// ë‹¤ìŒ ì„œë¸Œì»¨íŠ¸ë¡¤ì´ ìˆëŠ”ê²½ìš°
 			return EStatus::Activated;
 		}
 	}
 		return status;
 	case ControlState::EStatus::Changed:
-		// Update ¸»°í ´Ù¸¥°÷¿¡¼­ ¹Ù²Ù¶ó°í ÇÑ°æ¿ì (Event ¶óµç°¡..)
+		// Update ë§ê³  ë‹¤ë¥¸ê³³ì—ì„œ ë°”ê¾¸ë¼ê³  í•œê²½ìš° (Event ë¼ë“ ê°€..)
 		return EStatus::Changed;
 	
-	// ÁøÇàÇÏ¸é ¾ÈµÇ´Â°Íµé
+	// ì§„í–‰í•˜ë©´ ì•ˆë˜ëŠ”ê²ƒë“¤
 	case ControlState::EStatus::NotReady:
 	case ControlState::EStatus::Blocked:
 	case ControlState::EStatus::SystemError:
 		return status;
 	default:
-		// ¿Ã¼ö ¾ø´Â°æ¿ì
+		// ì˜¬ìˆ˜ ì—†ëŠ”ê²½ìš°
 		LOG_ERROR("default");
 		return EStatus::SystemError;
 	}
 
 
-	// ¾÷µ¥ÀÌÆ®
+	// ì—…ë°ì´íŠ¸
 	status = (*sub_control_iter)->OnUpdate(tick_diff);
 	switch (status)
 	{
 	case ControlState::EStatus::NotReady:
-		// ¾÷µ¥ÀÌÆ®´Â ÀÌ»óÅÂ°¡ µÇ¸é ¾ÈµÈ´Ù ½ÃÀÛºÎÅÍ ÇØ¾ßÇÔ
+		// ì—…ë°ì´íŠ¸ëŠ” ì´ìƒíƒœê°€ ë˜ë©´ ì•ˆëœë‹¤ ì‹œì‘ë¶€í„° í•´ì•¼í•¨
 		break;
 	case ControlState::EStatus::Activated:
 		break;
 	case ControlState::EStatus::Completed:
 	case ControlState::EStatus::Failed:
-		// ¿Ï·áµÈ »óÅÂ
+		// ì™„ë£Œëœ ìƒíƒœ
 	{
 		ControlState* sub_control_ptr = nullptr;
 		sub_control_ptr = (*sub_control_iter);
 
-		// Á¾·á Ã³¸®ÈÄ free
+		// ì¢…ë£Œ ì²˜ë¦¬í›„ free
 		sub_control_ptr->Stop();
 		SAFE_DELETE(sub_control_ptr);
 		sub_control_iter = sub_control_.erase(sub_control_iter);
 
 		if (sub_control_.empty() == false)
 		{
-			// ´ÙÀ½ ¼­ºêÄÁÆ®·ÑÀÌ ÀÖ´Â°æ¿ì
+			// ë‹¤ìŒ ì„œë¸Œì»¨íŠ¸ë¡¤ì´ ìˆëŠ”ê²½ìš°
 			return EStatus::Activated;
 		}
 	}
@@ -189,7 +189,7 @@ ControlState::EStatus ControlState::UpdateSubControl(DWORD tick_diff)
 	case ControlState::EStatus::SystemError:
 		break;
 	default:
-		// ¿Ã¼ö ¾ø´Â°æ¿ì
+		// ì˜¬ìˆ˜ ì—†ëŠ”ê²½ìš°
 		LOG_ERROR("default");
 		return EStatus::SystemError;
 	}

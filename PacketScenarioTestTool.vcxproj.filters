@@ -40,7 +40,10 @@
     <ClCompile Include="BotControlState.cpp">
       <Filter>Bot</Filter>
     </ClCompile>
-    <ClCompile Include="BotControlActionFactory.cpp" />
+    <ClCompile Include="ControlEventReceiver.cpp" />
+    <ClCompile Include="BotControlActionFactory.cpp">
+      <Filter>Bot</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
@@ -62,6 +65,9 @@
     <ClInclude Include="BotController.h">
       <Filter>Bot</Filter>
     </ClInclude>
-    <ClInclude Include="BotControlActionFactory.h" />
+    <ClInclude Include="ControlEventReceiver.h" />
+    <ClInclude Include="BotControlActionFactory.h">
+      <Filter>Bot</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -2,6 +2,7 @@
 #include "pch.h"
 #include "ControlState.h"
 #include "BotControlState.h"
+#include "ControlEventReceiver.h"
 
 class BotController : public BotControlState
 {
@@ -22,5 +23,8 @@ public:
 
 	// 컨트롤러에 다음 액션 추가
 	void AttachAction(ACTION_NODE_TYPE id);
+
+	// 컨트롤러에 이벤트 등록
+	void OnActionEvent(BotControlEvent* control_event);
 };
 

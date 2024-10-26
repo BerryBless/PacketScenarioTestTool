@@ -145,6 +145,7 @@
     <ClInclude Include="BotControlActionFactory.h" />
     <ClInclude Include="BotController.h" />
     <ClInclude Include="BotControlState.h" />
+    <ClInclude Include="ControlEventReceiver.h" />
     <ClInclude Include="ControlState.h" />
     <ClInclude Include="Define.h" />
     <ClInclude Include="Main.h" />
@@ -155,6 +156,7 @@
     <ClCompile Include="BotControlActionFactory.cpp" />
     <ClCompile Include="BotController.cpp" />
     <ClCompile Include="BotControlState.cpp" />
+    <ClCompile Include="ControlEventReceiver.cpp" />
     <ClCompile Include="ControlState.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="pch.cpp" />

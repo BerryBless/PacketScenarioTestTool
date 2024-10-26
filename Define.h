@@ -12,14 +12,21 @@ if(ptr != nullptr) \
 
 
 
-
-typedef int BOT_STATE_ID;
-
+// 액션별 따로 나누기
 enum class ACTION_NODE_TYPE
 {
 	Controller,
-	Action_A,
+	Action_A = 1000,
 	Action_B,
-	Count,
+	Invalid = -1
+};
+
+// 패킷별, 이벤트별 따로파기
+enum class ACTION_EVENT_TYPE
+{
+	Action_A_1 = 1000,
+	Action_A_2,
+	Action_A_3,
+	Action_B_1 = 2000,
 	Invalid = -1
 };
