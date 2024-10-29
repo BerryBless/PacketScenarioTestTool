@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="lib">
+      <UniqueIdentifier>{821f193a-3a9e-4fa4-83ce-cda0469076bf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Content">
+      <UniqueIdentifier>{38ca5b20-7637-48a5-9e0e-4f789e751c13}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main">
+      <UniqueIdentifier>{bbe49c1d-5523-4881-8c05-3db6c3b2a5ce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\Network">
+      <UniqueIdentifier>{0aec2689-6936-44d7-9a6d-ea2d80fd530e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Action">
+      <UniqueIdentifier>{074c8094-a80a-4152-b3b8-a1b927da538d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Content\ControlScript">
+      <UniqueIdentifier>{17f38e9b-6c5c-49e2-8888-df4aa81684e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Content\Bot">
+      <UniqueIdentifier>{08bba44d-b2da-41ae-a440-bbec9a1848c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\json">
+      <UniqueIdentifier>{9b6c4207-c433-4901-a909-671e4d393ce9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Content\Log">
+      <UniqueIdentifier>{ea1c17eb-8f5b-427e-a931-7c753b231c50}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Main.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="pch.cpp" />
+    <ClCompile Include="ControlState.cpp">
+      <Filter>Content\ControlScript</Filter>
+    </ClCompile>
+    <ClCompile Include="BotControlAction.cpp">
+      <Filter>Content\Bot</Filter>
+    </ClCompile>
+    <ClCompile Include="BotController.cpp">
+      <Filter>Content\Bot</Filter>
+    </ClCompile>
+    <ClCompile Include="BotControlState.cpp">
+      <Filter>Content\Bot</Filter>
+    </ClCompile>
+    <ClCompile Include="BotControlActionFactory.cpp">
+      <Filter>Content\Bot</Filter>
+    </ClCompile>
+    <ClCompile Include="ControlEventReceiver.cpp">
+      <Filter>Content\Bot</Filter>
+    </ClCompile>
+    <ClCompile Include="Bot.cpp">
+      <Filter>Content\Bot</Filter>
+    </ClCompile>
+    <ClCompile Include="CrashDump.cpp">
+      <Filter>lib</Filter>
+    </ClCompile>
+    <ClCompile Include="Logger.cpp">
+      <Filter>Content\Log</Filter>
+    </ClCompile>
+    <ClCompile Include="TextFile.cpp">
+      <Filter>lib</Filter>
+    </ClCompile>
+    <ClCompile Include="FileLogger.cpp">
+      <Filter>Content\Log</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="ControlState.h">
+      <Filter>Content\ControlScript</Filter>
+    </ClInclude>
+    <ClInclude Include="Main.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="Define.h">
+      <Filter>lib</Filter>
+    </ClInclude>
+    <ClInclude Include="BotControlAction.h">
+      <Filter>Content\Bot</Filter>
+    </ClInclude>
+    <ClInclude Include="BotControlState.h">
+      <Filter>Content\Bot</Filter>
+    </ClInclude>
+    <ClInclude Include="BotController.h">
+      <Filter>Content\Bot</Filter>
+    </ClInclude>
+    <ClInclude Include="BotControlActionFactory.h">
+      <Filter>Content\Bot</Filter>
+    </ClInclude>
+    <ClInclude Include="ControlEventReceiver.h">
+      <Filter>Content\Bot</Filter>
+    </ClInclude>
+    <ClInclude Include="Bot.h">
+      <Filter>Content\Bot</Filter>
+    </ClInclude>
+    <ClInclude Include="CrashDump.h">
+      <Filter>lib</Filter>
+    </ClInclude>
+    <ClInclude Include="json.hpp">
+      <Filter>lib\json</Filter>
+    </ClInclude>
+    <ClInclude Include="Logger.h">
+      <Filter>Content\Log</Filter>
+    </ClInclude>
+    <ClInclude Include="TextFile.h">
+      <Filter>lib</Filter>
+    </ClInclude>
+    <ClInclude Include="FileLogger.h">
+      <Filter>Content\Log</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
