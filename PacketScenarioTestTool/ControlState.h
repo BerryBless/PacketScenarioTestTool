@@ -64,7 +64,6 @@ public:
 	EStatus			UpdateSubControl(DWORD tick_diff);
 	void			RemoveAllSubControl();
 
-
 public:
 	ControlState*	GetParent() { return parent_; }
 	void			SetParent(ControlState* pParent) { parent_ = pParent; }
@@ -89,6 +88,7 @@ public:
 
 public:
 	bool			IsEmpty() { return sub_control_.empty() == true; }
+
 	int				GetDepth();
 
 protected:

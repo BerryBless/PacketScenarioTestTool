@@ -24,6 +24,7 @@
 #include "CrashDump.h"
 #include <memory>
 #include <functional>
+#include <map>
 
 #ifdef min
 #undef min

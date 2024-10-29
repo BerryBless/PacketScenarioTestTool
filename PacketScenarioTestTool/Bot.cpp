@@ -14,8 +14,8 @@ ControlState::EStatus Bot::Update(DWORD tick_diff)
 	return controller_.OnUpdate(tick_diff);
 }
 
-bool Bot::PushAction(ACTION_TYPE action_type, void* value_ptr)
+bool Bot::PushAction(ActionType ActionType, void* value_ptr)
 {
-	controller_.AttachAction(action_type, value_ptr);
+	controller_.AttachAction(ActionType, value_ptr);
 	return true;
 }

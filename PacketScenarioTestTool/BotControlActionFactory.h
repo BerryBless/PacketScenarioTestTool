@@ -8,7 +8,7 @@ public:
 	BotControlActionFactory() {}
 	virtual ~BotControlActionFactory() {}
 
-	static BotControlState* CreateState(ACTION_TYPE id);
+	static BotControlState* CreateState(ActionType id);
 	static void DestoryState(BotControlState* state);
 
 };

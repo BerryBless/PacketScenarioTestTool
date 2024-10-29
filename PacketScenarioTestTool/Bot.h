@@ -14,12 +14,14 @@ public:
 	ControlState::EStatus Update(DWORD tick_diff);
 
 public:
-	bool PushAction(ACTION_TYPE action_type, void* value_ptr = nullptr);
+	bool PushAction(ActionType ActionType, void* value_ptr = nullptr);
 
 	BOT_ID GetId() { return id_; }
 
 	void LogIn() { is_login_ = true; }
 	bool IsLogIn() { return is_login_; }
+
+	ActionType GetCurrentAction() { return controller_.GetCurrentAction(); }
 private:
 	const BOT_ID id_;
 

@@ -3,11 +3,21 @@
 #include "BotController.h"
 #include "BotControlActionFactory.h"
 
+void BotControlState::Start()
+{
+	if (controller_ != nullptr)
+	{
+		controller_->SetCurrentAction(static_cast<ActionType>(GetControlStateID()));
+	}
+	__super::Start();
+}
+
 void BotControlState::Stop()
 {
 	if (controller_ != nullptr)
 	{
 		OnDetached();
+		controller_->SetCurrentAction(ActionType::EndAction);
 	}
 	__super::Stop();
 }
@@ -28,7 +38,7 @@ bool BotControlState::AddToSubControl(ControlState* control_state)
     return true;
 }
 
-bool BotControlState::AttachNode(BotController* controller, ACTION_TYPE id, void* value_ptr, bool attach_action)
+bool BotControlState::AttachNode(BotController* controller, ActionType id, void* value_ptr, bool attach_action)
 {
 
 	if (controller == nullptr)
@@ -52,7 +62,7 @@ bool BotControlState::AttachNode(BotController* controller, ACTION_TYPE id, void
 	return true;
 }
 
-bool BotControlState::AttachSubAction(ACTION_TYPE id, void* value_ptr)
+bool BotControlState::AttachSubAction(ActionType id, void* value_ptr)
 {
  	BotControlState* next_action = BotControlActionFactory::CreateState(id);
  	

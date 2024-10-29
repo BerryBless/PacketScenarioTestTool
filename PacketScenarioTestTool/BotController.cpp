@@ -7,7 +7,7 @@ void BotController::Create(Bot* owner)
 	owner_bot_ = owner;
 }
 
-void BotController::AttachAction(ACTION_TYPE id, void* value_ptr)
+void BotController::AttachAction(ActionType id, void* value_ptr)
 {
 	AttachNode(this, id, value_ptr);
 }

@@ -45,10 +45,10 @@ ControlState::EStatus BotAction_A::OnActionEvent(BotControlEvent* control_event)
 
 	switch (control_event->GetEventType())
 	{
-	case ACTION_EVENT_TYPE::Action_A_1:
+	case ActionEventType::Action_A_1:
 		OnEventAction_A_1(static_cast<BotControlEvent_Action_A_1*> (control_event));
 		break;
-	case ACTION_EVENT_TYPE::Action_A_2:
+	case ActionEventType::Action_A_2:
 		OnEventAction_A_2(static_cast<BotControlEvent_Action_A_2*> (control_event));
 		break;
 	default:
@@ -124,10 +124,10 @@ ControlState::EStatus BotAction_B::OnActionEvent(BotControlEvent* control_event)
 
 	switch (control_event->GetEventType())
 	{
-	case ACTION_EVENT_TYPE::Action_A_1:
+	case ActionEventType::Action_A_1:
 		//OnEventAction_A_1(static_cast<BotControlEvent_Action_A_1*> (control_event));
 		break;
-	case ACTION_EVENT_TYPE::Action_A_2:
+	case ActionEventType::Action_A_2:
 		//OnEventAction_A_2(static_cast<BotControlEvent_Action_A_2*> (control_event));
 		break;
 	default:
@@ -187,10 +187,10 @@ ControlState::EStatus BotAction_LogIn::OnActionEvent(BotControlEvent* control_ev
 
 	switch (control_event->GetEventType())
 	{
-	case ACTION_EVENT_TYPE::Action_A_1:
+	case ActionEventType::Action_A_1:
 		//OnEventAction_A_1(static_cast<BotControlEvent_Action_A_1*> (control_event));
 		break;
-	case ACTION_EVENT_TYPE::Action_A_2:
+	case ActionEventType::Action_A_2:
 		//OnEventAction_A_2(static_cast<BotControlEvent_Action_A_2*> (control_event));
 		break;
 	default:

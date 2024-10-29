@@ -13,13 +13,15 @@ public:
 	TestManager();
 	~TestManager();
 	
-	void Start(const std::vector<ACTION_TYPE>& action_list, int bot_count,int thrad_count, bool is_repeat);
+	void Start(const std::vector<ActionType>& action_list, int bot_count,int thrad_count, bool is_repeat);
 	void ThreadLoop(int start_id, int end_id);
 	void Stop();
 
 	// 업데이트 일시정지
 	void Pause() { is_pause_ = true; }
 	void Resume() { is_pause_ = false; }
+
+	void MonitorCurAction();
 private:
 	void PushScenario(int bot_index);
 
@@ -29,9 +31,11 @@ private:
 	int bot_count_ = 0;
 	int thread_count_ = 0;
 
-	std::vector<Bot> bot_list_;
+	// 봇리스트, 멀티스래드가 각 구역을 나눠서 순회
+	Bot** bot_list_ = nullptr;
+
 	std::vector<std::thread> threads_;
-	std::vector<ACTION_TYPE> action_list_;
+	std::vector<ActionType> action_list_;
 
 	bool is_repeat_ = false;
 	bool is_running_ = false;

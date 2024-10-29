@@ -5,17 +5,15 @@
 class BotControlAction : public BotControlState
 {
 public:
-	BotControlAction(ACTION_TYPE node_type) : BotControlState(node_type) {}
+	BotControlAction(ActionType node_type) : BotControlState(node_type) {}
 };
 
 
-template<ACTION_TYPE TNodeType>
+template<ActionType TNodeType>
 class TBotControlAction : public BotControlAction
 {
 public:
-	static const ACTION_TYPE cNodeType = TNodeType;//ACTION_TYPE::Invalid;
-
-	TBotControlAction() : BotControlAction(cNodeType) {}
+	TBotControlAction() : BotControlAction(TNodeType) {}
 
 
 	void	OnEnter() override { LOG_INFO("OnEnter()"); }
@@ -51,7 +49,7 @@ public:
 ///////////////////////////////////////////////////////////////////////////////////////////
 // BotAction_A
 ///////////////////////////////////////////////////////////////////////////////////////////
-class BotAction_A : public TBotControlAction<ACTION_TYPE::Action_A>
+class BotAction_A : public TBotControlAction<ActionType::Action_A>
 {
 
 public:
@@ -75,7 +73,7 @@ private:
 ///////////////////////////////////////////////////////////////////////////////////////////
 // BotAction_B
 ///////////////////////////////////////////////////////////////////////////////////////////
-class BotAction_B : public TBotControlAction<ACTION_TYPE::Action_B>
+class BotAction_B : public TBotControlAction<ActionType::Action_B>
 {
 
 public:
@@ -95,7 +93,7 @@ private:
 ///////////////////////////////////////////////////////////////////////////////////////////
 // BotAction_LogIn
 ///////////////////////////////////////////////////////////////////////////////////////////
-class BotAction_LogIn : public TBotControlAction<ACTION_TYPE::LogIn>
+class BotAction_LogIn : public TBotControlAction<ActionType::LogIn>
 {
 
 public:

@@ -1,7 +1,7 @@
 #pragma once
 #include "BotControlState.h"
 
-// ACTION_EVENT_TYPE 마다 이벤트 생성 필요
+// ActionEventType 마다 이벤트 생성 필요
 // 데이터만 넘겨줌
 // OnEvent 구현은 각 Action 에서 따로하기
 
@@ -10,22 +10,22 @@ class BotControlEvent : public BotControlState::ControlEvent
 {
 public:
 	// TODO ID 다시 생각하기
-	BotControlEvent(ACTION_EVENT_TYPE event_type) : 
+	BotControlEvent(ActionEventType event_type) : 
 		BotControlState::ControlEvent(static_cast<BotControlState::EventId> (event_type))
 	, event_type_(event_type) {}
 
 public:
-	ACTION_EVENT_TYPE GetEventType() { return event_type_; }
+	ActionEventType GetEventType() { return event_type_; }
 private:
-	ACTION_EVENT_TYPE event_type_ = ACTION_EVENT_TYPE::Invalid;
+	ActionEventType event_type_ = ActionEventType::Invalid;
 };
 
 
-template<ACTION_EVENT_TYPE TEventType>
+template<ActionEventType TEventType>
 class TBotControllEvent : public BotControlEvent
 {
 public:
-	static const ACTION_EVENT_TYPE cEventType = TEventType;
+	static const ActionEventType cEventType = TEventType;
 
 	TBotControllEvent() : BotControlEvent(cEventType) {}
 
@@ -39,7 +39,7 @@ public:
 ///////////////////////////////////////////////////////////////////////////////////////////
 // BotControlEvent_Action_A_1
 ///////////////////////////////////////////////////////////////////////////////////////////
-class BotControlEvent_Action_A_1 : public TBotControllEvent<ACTION_EVENT_TYPE::Action_A_1>
+class BotControlEvent_Action_A_1 : public TBotControllEvent<ActionEventType::Action_A_1>
 {
 public:
 	BotControlEvent_Action_A_1(std::string event_content) :
@@ -54,7 +54,7 @@ public:
 ///////////////////////////////////////////////////////////////////////////////////////////
 // BotControlEvent_Action_A_2
 ///////////////////////////////////////////////////////////////////////////////////////////
-class BotControlEvent_Action_A_2 : public TBotControllEvent<ACTION_EVENT_TYPE::Action_A_2>
+class BotControlEvent_Action_A_2 : public TBotControllEvent<ActionEventType::Action_A_2>
 {
 public:
 	BotControlEvent_Action_A_2(int event_content) :

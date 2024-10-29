@@ -12,11 +12,12 @@ int main()
 
 	TestManager manager;
 
-	std::vector<ACTION_TYPE> test_list = { ACTION_TYPE::LogIn, ACTION_TYPE::Action_A, ACTION_TYPE::Action_B };
+	std::vector<ActionType> test_list = { ActionType::LogIn, ActionType::Action_A, ActionType::Action_B };
 
-	manager.Start(test_list, 5000,4,true);
+	manager.Start(test_list, 10000000, std::thread::hardware_concurrency(), true);
 	while (true)
 	{
+		manager.MonitorCurAction();
 		Sleep(1000);
 	}
 

@@ -16,7 +16,7 @@
 
 
 // 액션별 따로 나누기
-enum class ACTION_TYPE
+enum class ActionType
 {
 	Controller,
 	LogIn = 1000,
@@ -25,8 +25,24 @@ enum class ACTION_TYPE
 	Invalid = -1
 };
 
+
+
+
+inline const wchar_t* ActionTypeToString(ActionType action_type)
+{
+	switch (action_type)
+	{
+	case ActionType::Controller:		return L"Controller";
+	case ActionType::LogIn:		return L"LogIn";
+	case ActionType::Action_A:		return L"Action_A";
+	case ActionType::Action_B:		return L"Action_B";
+	default:
+		return L"Invalid";
+	}
+}
+
 // 패킷별, 이벤트별 따로파기
-enum class ACTION_EVENT_TYPE
+enum class ActionEventType
 {
 	Action_A_1 = 1000,
 	Action_A_2,

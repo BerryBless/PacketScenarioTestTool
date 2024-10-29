@@ -6,9 +6,10 @@ class BotController;
 class BotControlState : public ControlState
 {
 public:
-	BotControlState(ACTION_TYPE state_node) : ControlState(static_cast<ControlStateID>(state_node)){}
+	BotControlState(ActionType state_node) : ControlState(static_cast<ControlStateID>(state_node)){}
 
 	// 상속
+	void			Start() override;
 	void			Stop() override;
 	void			OnEnter() override { std::cout << "BotControlState::OnEnter()"; }
 	void			OnExit() override { std::cout << "BotControlState::OnExit()"; }
@@ -24,10 +25,11 @@ public:
 
 public:
 	// 컨트롤러에 이 노드 넣기
-	virtual bool AttachNode(BotController* controller, ACTION_TYPE id, void* value_ptr, bool attach_action = true);
+	virtual bool AttachNode(BotController* controller, ActionType id, void* value_ptr, bool attach_action = true);
 	// 서브 엑션 추가
-	bool AttachSubAction(ACTION_TYPE id, void* value_ptr);
+	bool AttachSubAction(ActionType id, void* value_ptr);
 
+	ActionType GetActionType() { return static_cast<ActionType>(GetControlStateID()); }
 protected:
 
 	BotController* controller_ = nullptr;
