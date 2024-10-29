@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{dc901481-fc6f-4db8-9a18-a19d85c28620}</ProjectGuid>
-    <RootNamespace>PacketScenarioTestTool</RootNamespace>
+    <ProjectGuid>{6add200c-e3d3-42e2-a918-fc2fe531a30a}</ProjectGuid>
+    <RootNamespace>TestServer</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -88,7 +88,6 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -117,8 +116,6 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <PrecompiledHeader>Use</PrecompiledHeader>
-      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
@@ -135,12 +132,8 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <Optimization>Disabled</Optimization>
-      <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
-      <LanguageStandard_C>stdc17</LanguageStandard_C>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <PrecompiledHeader>Use</PrecompiledHeader>
-      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -150,39 +143,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Bot.h" />
-    <ClInclude Include="BotControlAction.h" />
-    <ClInclude Include="BotControlActionFactory.h" />
-    <ClInclude Include="BotController.h" />
-    <ClInclude Include="BotControlState.h" />
-    <ClInclude Include="ControlEventReceiver.h" />
-    <ClInclude Include="ControlState.h" />
-    <ClInclude Include="CrashDump.h" />
-    <ClInclude Include="Define.h" />
-    <ClInclude Include="FileLogger.h" />
-    <ClInclude Include="json.hpp" />
-    <ClInclude Include="Logger.h" />
-    <ClInclude Include="Main.h" />
-    <ClInclude Include="pch.h" />
-    <ClInclude Include="TextFile.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="Bot.cpp" />
-    <ClCompile Include="BotControlAction.cpp" />
-    <ClCompile Include="BotControlActionFactory.cpp" />
-    <ClCompile Include="BotController.cpp" />
-    <ClCompile Include="BotControlState.cpp" />
-    <ClCompile Include="ControlEventReceiver.cpp" />
-    <ClCompile Include="ControlState.cpp" />
-    <ClCompile Include="CrashDump.cpp" />
-    <ClCompile Include="FileLogger.cpp" />
-    <ClCompile Include="Logger.cpp" />
-    <ClCompile Include="Main.cpp" />
-    <ClCompile Include="pch.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
-    </ClCompile>
-    <ClCompile Include="TextFile.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

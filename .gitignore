@@ -30,3 +30,7 @@
 *.exe
 *.out
 *.app
+/.vs
+/PacketScenarioTestTool/x64
+/TestServer/x64
+/x64
