@@ -8,12 +8,9 @@ BotControlState* BotControlActionFactory::CreateState(ACTION_TYPE id)
 	
 	switch (id)
 	{
-	case ACTION_TYPE::Action_A:
-		control_state = new BotAction_A();
-		break;
-	case ACTION_TYPE::Action_B:
-		control_state = new BotAction_B();
-		break;
+	case ACTION_TYPE::LogIn:		control_state = new BotAction_LogIn();		break;
+	case ACTION_TYPE::Action_A:		control_state = new BotAction_A();		break;
+	case ACTION_TYPE::Action_B:		control_state = new BotAction_B();		break;
 	default:
 		LOG_ERROR("ERROR");
 		break;

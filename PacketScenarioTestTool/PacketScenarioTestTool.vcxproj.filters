@@ -13,9 +13,6 @@
     <Filter Include="lib\Network">
       <UniqueIdentifier>{0aec2689-6936-44d7-9a6d-ea2d80fd530e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Action">
-      <UniqueIdentifier>{074c8094-a80a-4152-b3b8-a1b927da538d}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Content\ControlScript">
       <UniqueIdentifier>{17f38e9b-6c5c-49e2-8888-df4aa81684e3}</UniqueIdentifier>
     </Filter>
@@ -28,6 +25,9 @@
     <Filter Include="Content\Log">
       <UniqueIdentifier>{ea1c17eb-8f5b-427e-a931-7c753b231c50}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Content\Action">
+      <UniqueIdentifier>{074c8094-a80a-4152-b3b8-a1b927da538d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -37,16 +37,10 @@
     <ClCompile Include="ControlState.cpp">
       <Filter>Content\ControlScript</Filter>
     </ClCompile>
-    <ClCompile Include="BotControlAction.cpp">
-      <Filter>Content\Bot</Filter>
-    </ClCompile>
     <ClCompile Include="BotController.cpp">
       <Filter>Content\Bot</Filter>
     </ClCompile>
     <ClCompile Include="BotControlState.cpp">
-      <Filter>Content\Bot</Filter>
-    </ClCompile>
-    <ClCompile Include="BotControlActionFactory.cpp">
       <Filter>Content\Bot</Filter>
     </ClCompile>
     <ClCompile Include="ControlEventReceiver.cpp">
@@ -67,6 +61,16 @@
     <ClCompile Include="FileLogger.cpp">
       <Filter>Content\Log</Filter>
     </ClCompile>
+    <ClCompile Include="BotControlAction.cpp">
+      <Filter>Content\Action</Filter>
+    </ClCompile>
+    <ClCompile Include="BotControlActionFactory.cpp">
+      <Filter>Content\Action</Filter>
+    </ClCompile>
+    <ClCompile Include="TestManager.cpp">
+      <Filter>Content</Filter>
+    </ClCompile>
+    <ClCompile Include="GlobalSetting.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
@@ -79,16 +83,10 @@
     <ClInclude Include="Define.h">
       <Filter>lib</Filter>
     </ClInclude>
-    <ClInclude Include="BotControlAction.h">
-      <Filter>Content\Bot</Filter>
-    </ClInclude>
     <ClInclude Include="BotControlState.h">
       <Filter>Content\Bot</Filter>
     </ClInclude>
     <ClInclude Include="BotController.h">
-      <Filter>Content\Bot</Filter>
-    </ClInclude>
-    <ClInclude Include="BotControlActionFactory.h">
       <Filter>Content\Bot</Filter>
     </ClInclude>
     <ClInclude Include="ControlEventReceiver.h">
@@ -112,5 +110,15 @@
     <ClInclude Include="FileLogger.h">
       <Filter>Content\Log</Filter>
     </ClInclude>
+    <ClInclude Include="BotControlAction.h">
+      <Filter>Content\Action</Filter>
+    </ClInclude>
+    <ClInclude Include="BotControlActionFactory.h">
+      <Filter>Content\Action</Filter>
+    </ClInclude>
+    <ClInclude Include="TestManager.h">
+      <Filter>Content</Filter>
+    </ClInclude>
+    <ClInclude Include="GlobalSetting.h" />
   </ItemGroup>
 </Project>

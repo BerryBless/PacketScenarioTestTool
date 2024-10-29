@@ -1,6 +1,10 @@
 #pragma once
 #include <shlobj_core.h>
 
+//////////////////////////////////
+// 파일 관리 클래스
+// utf8로 파일 저장 하기
+//////////////////////////////////
 class TextFile
 {
 public:

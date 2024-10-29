@@ -56,8 +56,8 @@ class BotAction_A : public TBotControlAction<ACTION_TYPE::Action_A>
 
 public:
 	void		OnAttached() override;
-	void		OnDetached() override { LOG_INFO("state_id : {} ) BotAction_A::OnDetached()\n", GetControlStateID()); }
-	void		OnEnter() override { LOG_INFO("state_id : {} ) BotAction_A::OnEnter()\n", GetControlStateID()); }
+	void		OnDetached() override;
+	void		OnEnter() override;
 	void		OnExit() override;
 	EStatus		OnUpdate(DWORD tick_diff) override;
 	EStatus		OnActionEvent(BotControlEvent* control_event) override;
@@ -79,21 +79,36 @@ class BotAction_B : public TBotControlAction<ACTION_TYPE::Action_B>
 {
 
 public:
-	void		OnAttached() override { LOG_INFO("state_id : {} ) BotAction_B::OnAttached()\n", GetControlStateID()); }
-	void		OnDetached() override { LOG_INFO("state_id : {} ) BotAction_B::OnDetached()\n", GetControlStateID()); }
-	void		OnEnter() override { LOG_INFO("state_id : {} ) BotAction_B::OnEnter()\n", GetControlStateID()); }
-	void		OnExit() override {
-		LOG_INFO("state_id : {} ) BotAction_B::OnExit()\n", GetControlStateID());
-	}
-	EStatus		OnUpdate(DWORD tick_diff) override {
-		Sleep(100);
-		LOG_INFO("state_id : {} ) BotAction_B::OnUpdate() count = {}\n", GetControlStateID(), cnt);
-		if (cnt >= 10) SetStatus(ControlState::EStatus::Completed);
-		++cnt;
-		return GetStatus();
-	}
+	void		OnAttached() override;
+	void		OnDetached() override;
+	void		OnEnter() override;
+	void		OnExit() override;
+	EStatus		OnUpdate(DWORD tick_diff) override;
+	EStatus		OnActionEvent(BotControlEvent* control_event) override;
+
 
 private:
 	int cnt = 0;
 };
 
+
+///////////////////////////////////////////////////////////////////////////////////////////
+// BotAction_LogIn
+///////////////////////////////////////////////////////////////////////////////////////////
+class BotAction_LogIn : public TBotControlAction<ACTION_TYPE::LogIn>
+{
+
+public:
+	void		OnAttached() override;
+	void		OnDetached() override;
+	void		OnEnter() override;
+	void		OnExit() override;
+	EStatus		OnUpdate(DWORD tick_diff) override;
+	EStatus		OnActionEvent(BotControlEvent* control_event) override;
+
+private:
+	// 이벤트
+
+private:
+	int cnt = 0;
+};

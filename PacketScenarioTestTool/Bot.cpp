@@ -7,9 +7,11 @@ Bot::Bot(BOT_ID id) :
 	controller_.Create(this);
 }
 
-void Bot::Update(DWORD tick_diff)
+ControlState::EStatus Bot::Update(DWORD tick_diff)
 {
-	controller_.OnUpdate(tick_diff);
+	// TODO 네트워크 업데이트
+
+	return controller_.OnUpdate(tick_diff);
 }
 
 bool Bot::PushAction(ACTION_TYPE action_type, void* value_ptr)

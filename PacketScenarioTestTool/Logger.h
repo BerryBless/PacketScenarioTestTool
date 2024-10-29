@@ -49,6 +49,7 @@ private:
 	Logger(Logger&&) = delete;
 	Logger& operator=(Logger&&) = delete;
 
+public:
 	void SetLogLevel(LogLevel level) { log_level_ = static_cast<int>(level); }
 	void SetPrintLogLevel(LogLevel level) { print_file_level_ = static_cast<int>(level); }
 
