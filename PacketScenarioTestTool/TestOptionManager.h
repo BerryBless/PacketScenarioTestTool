@@ -35,10 +35,10 @@ public:
 	const TestOption& GetTestOption() const { return test_option_; }
 
 	void SetBotCount(int bot_cnt) { test_option_.bot_count = bot_cnt; }
-	void SetBotCount(int thread_count) { test_option_.thread_count = thread_count; }
-	void SetBotCount(bool is_auto_login) { test_option_.is_auto_login = is_auto_login; }
-	void SetBotCount(int is_repeat) { test_option_.is_repeat = is_repeat; }
-	void SetBotCount(const std::vector<ActionType>& action_list) { test_option_.action_list = action_list; }
+	void SetThreadCount(int thread_count) { test_option_.thread_count = thread_count; }
+	void SetAutoLogin(bool is_auto_login) { test_option_.is_auto_login = is_auto_login; }
+	void SetRepeat(int is_repeat) { test_option_.is_repeat = is_repeat; }
+	void SetActionList(const std::vector<ActionType>& action_list) { test_option_.action_list = action_list; }
 
 private:
 	TestOption test_option_;

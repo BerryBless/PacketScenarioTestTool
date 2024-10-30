@@ -34,8 +34,7 @@ private:
 
 
 private:
-	// core
-	const std::chrono::milliseconds frame_duration_{ 50 }; // 50ms = 20 FPS
+	const std::chrono::milliseconds frame_duration_{ TARGET_FRAME_DURATION_MS };
 	// 봇리스트, 멀티스래드가 각 구역을 나눠서 순회
 	Bot** bot_list_ = nullptr;
 

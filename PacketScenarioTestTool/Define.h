@@ -13,6 +13,8 @@
 #define SAFE_DELETE_ARRAY(ptr) do{if(ptr != nullptr) { delete[](ptr); ptr = nullptr; }} while (0)
 //#define SAFE_DELETE(ptr) delete(ptr)
 
+// 50ms = 20 FPS
+#define TARGET_FRAME_DURATION_MS 50
 
 const unsigned int PRINT_BUF_SIZE = 8192;
 

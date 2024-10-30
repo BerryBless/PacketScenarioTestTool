@@ -22,7 +22,7 @@ FileLogger::~FileLogger()
 			SAFE_DELETE(msg_ptr);
 		}
 	}
-	log_file_.CloseFile();
+	//log_file_.CloseFile();
 }
 
 bool FileLogger::MakeFile(const CTime& curTime)

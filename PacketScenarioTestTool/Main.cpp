@@ -14,16 +14,19 @@ int main()
 	TestOptionManager option_manager;
 	TestManager test_manager;
 
-	option_manager.LoadSetting(L"");
+	option_manager.LoadSetting(L"Test.json");
 
-	test_manager.Init(option_manager.GetTestOption());
-
-	test_manager.Start();
-	while (true)
-	{
-		test_manager.MonitorCurAction();
-		Sleep(1000);
-	}
+ 	test_manager.Init(option_manager.GetTestOption());
+ 
+ 	test_manager.Start();
+ 	while (true)
+ 	{
+ 		test_manager.MonitorCurAction();
+ 		Sleep(1000);
+ 	}
+	
+	
+	FileLogger::Instance().ThreadStop();
 
 	return 0;
 }

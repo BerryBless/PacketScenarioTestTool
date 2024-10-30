@@ -1,0 +1,11 @@
+{
+    "action_list": [
+        "LogIn",
+        "Action_A",
+        "Action_B"
+    ],
+    "bot_count": 5000000,
+    "is_auto_login": false,
+    "is_repeat": true,
+    "thread_count": 32
+}
