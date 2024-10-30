@@ -4,6 +4,10 @@
 // 테스트 옵션
 struct TestOption
 {
+	// 연결할 서버 정보
+	std::string server_ip = "127.0.0.1";
+	WORD prot = 0;
+
 	// 봇 개수
 	int bot_count = 0;
 	// 봇 돌릴 스레드 개수

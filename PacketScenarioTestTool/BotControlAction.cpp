@@ -19,6 +19,8 @@ void BotAction_A::OnDetached()
 void BotAction_A::OnEnter()
 {
 	LOG_DEBUG("bot_id : {} ) BotAction_A::OnEnter(), Depth {}", controller_->GetOwner()->GetId(), GetDepth());
+
+	SetStatus(ControlState::EStatus::Blocked);
 }
 
 void BotAction_A::OnExit()
@@ -27,10 +29,11 @@ void BotAction_A::OnExit()
 }
 ControlState::EStatus BotAction_A::OnUpdate(DWORD tick_diff)
 {
-	LOG_DEBUG("bot_id : {} ) BotAction_A::OnUpdate() count = %d", controller_->GetOwner()->GetId(), cnt);
+	LOG_DEBUG("bot_id : {} ) BotAction_A::OnUpdate() count = {}", controller_->GetOwner()->GetId(), cnt);
  	if (cnt >= 10)
  	{
- 		SetStatus(ControlState::EStatus::Completed);
+		LOG_DEBUG("bot_id : {} ) BotAction_A::OnUpdate() Completed", controller_->GetOwner()->GetId());
+		SetStatus(ControlState::EStatus::Completed);
  	}
  	++cnt;
 	return GetStatus();
@@ -67,6 +70,9 @@ void BotAction_A::OnEventAction_A_1(BotControlEvent_Action_A_1* control_event)
 	}
 
 	LOG_DEBUG("OnEventAction_A_1)  {}", control_event->event_content_.c_str());
+
+
+	SetStatus(ControlState::EStatus::Activated);
 }
 
 void BotAction_A::OnEventAction_A_2(BotControlEvent_Action_A_2* control_event)
@@ -106,7 +112,7 @@ void BotAction_B::OnExit()
 
 ControlState::EStatus BotAction_B::OnUpdate(DWORD tick_diff)
 {
-	LOG_DEBUG("bot_id : {} ) BotAction_B::OnUpdate() count = %d", controller_->GetOwner()->GetId(), cnt);
+	LOG_DEBUG("bot_id : {} ) BotAction_B::OnUpdate() count = {}", controller_->GetOwner()->GetId(), cnt);
 	if (cnt >= 10)
 	{
 		SetStatus(ControlState::EStatus::Completed);

@@ -46,14 +46,8 @@
     <ClCompile Include="BotControlState.cpp">
       <Filter>Content\Bot</Filter>
     </ClCompile>
-    <ClCompile Include="ControlEventReceiver.cpp">
-      <Filter>Content\Bot</Filter>
-    </ClCompile>
     <ClCompile Include="Bot.cpp">
       <Filter>Content\Bot</Filter>
-    </ClCompile>
-    <ClCompile Include="CrashDump.cpp">
-      <Filter>lib</Filter>
     </ClCompile>
     <ClCompile Include="Logger.cpp">
       <Filter>Content\Log</Filter>
@@ -80,6 +74,18 @@
     <ClCompile Include="TestManager.cpp">
       <Filter>Content\Test</Filter>
     </ClCompile>
+    <ClCompile Include="ClientBase.cpp">
+      <Filter>lib\Network</Filter>
+    </ClCompile>
+    <ClCompile Include="CrashDump.cpp">
+      <Filter>lib</Filter>
+    </ClCompile>
+    <ClCompile Include="GameClient.cpp">
+      <Filter>Content\Bot</Filter>
+    </ClCompile>
+    <ClCompile Include="ControlEventReceiver.cpp">
+      <Filter>Content\Action</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
@@ -96,9 +102,6 @@
       <Filter>Content\Bot</Filter>
     </ClInclude>
     <ClInclude Include="BotController.h">
-      <Filter>Content\Bot</Filter>
-    </ClInclude>
-    <ClInclude Include="ControlEventReceiver.h">
       <Filter>Content\Bot</Filter>
     </ClInclude>
     <ClInclude Include="Bot.h">
@@ -140,6 +143,15 @@
     </ClInclude>
     <ClInclude Include="TestDefine.h">
       <Filter>Content\Test</Filter>
+    </ClInclude>
+    <ClInclude Include="ClientBase.h">
+      <Filter>lib\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="GameClient.h">
+      <Filter>Content\Bot</Filter>
+    </ClInclude>
+    <ClInclude Include="ControlEventReceiver.h">
+      <Filter>Content\Action</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -9,7 +9,7 @@ int main()
 	FileLogger::Instance().Init(L"test", L"log");
 	FileLogger::Instance().ThreadStart();
 
-	Logger::Instance().SetLogLevel(LogLevel::Info);
+	//Logger::Instance().SetLogLevel(LogLevel::Info);
 
 	TestOptionManager option_manager;
 	TestManager test_manager;
@@ -21,7 +21,7 @@ int main()
  	test_manager.Start();
  	while (true)
  	{
- 		test_manager.MonitorCurAction();
+ 		//test_manager.MonitorCurAction();
  		Sleep(1000);
  	}
 	
