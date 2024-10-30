@@ -150,6 +150,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="ActionDefine.h" />
     <ClInclude Include="Bot.h" />
     <ClInclude Include="BotControlAction.h" />
     <ClInclude Include="BotControlActionFactory.h" />
@@ -159,13 +160,16 @@
     <ClInclude Include="ControlState.h" />
     <ClInclude Include="CrashDump.h" />
     <ClInclude Include="Define.h" />
+    <ClInclude Include="EnumParser.h" />
     <ClInclude Include="FileLogger.h" />
     <ClInclude Include="GlobalSetting.h" />
     <ClInclude Include="json.hpp" />
     <ClInclude Include="Logger.h" />
     <ClInclude Include="Main.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="TestDefine.h" />
     <ClInclude Include="TestManager.h" />
+    <ClInclude Include="TestOptionManager.h" />
     <ClInclude Include="TextFile.h" />
   </ItemGroup>
   <ItemGroup>
@@ -177,6 +181,7 @@
     <ClCompile Include="ControlEventReceiver.cpp" />
     <ClCompile Include="ControlState.cpp" />
     <ClCompile Include="CrashDump.cpp" />
+    <ClCompile Include="EnumParser.cpp" />
     <ClCompile Include="FileLogger.cpp" />
     <ClCompile Include="GlobalSetting.cpp" />
     <ClCompile Include="Logger.cpp" />
@@ -186,6 +191,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="TestManager.cpp" />
+    <ClCompile Include="TestOptionManager.cpp" />
     <ClCompile Include="TextFile.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

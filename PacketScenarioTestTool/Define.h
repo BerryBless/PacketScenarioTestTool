@@ -14,43 +14,6 @@
 //#define SAFE_DELETE(ptr) delete(ptr)
 
 
-
-// 액션별 따로 나누기
-enum class ActionType
-{
-	Controller,
-	LogIn = 1000,
-	Action_A,
-	Action_B,
-	Invalid = -1
-};
-
-
-
-
-inline const wchar_t* ActionTypeToString(ActionType action_type)
-{
-	switch (action_type)
-	{
-	case ActionType::Controller:		return L"Controller";
-	case ActionType::LogIn:		return L"LogIn";
-	case ActionType::Action_A:		return L"Action_A";
-	case ActionType::Action_B:		return L"Action_B";
-	default:
-		return L"Invalid";
-	}
-}
-
-// 패킷별, 이벤트별 따로파기
-enum class ActionEventType
-{
-	Action_A_1 = 1000,
-	Action_A_2,
-	Action_A_3,
-	Action_B_1 = 2000,
-	Invalid = -1
-};
-
 const unsigned int PRINT_BUF_SIZE = 8192;
 
 

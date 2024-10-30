@@ -28,6 +28,9 @@
     <Filter Include="Content\Action">
       <UniqueIdentifier>{074c8094-a80a-4152-b3b8-a1b927da538d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Content\Test">
+      <UniqueIdentifier>{ee686ed6-2f2e-4e7b-be0c-dc96bc3cf260}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -67,10 +70,16 @@
     <ClCompile Include="BotControlActionFactory.cpp">
       <Filter>Content\Action</Filter>
     </ClCompile>
-    <ClCompile Include="TestManager.cpp">
-      <Filter>Content</Filter>
-    </ClCompile>
     <ClCompile Include="GlobalSetting.cpp" />
+    <ClCompile Include="EnumParser.cpp">
+      <Filter>lib</Filter>
+    </ClCompile>
+    <ClCompile Include="TestOptionManager.cpp">
+      <Filter>Content\Test</Filter>
+    </ClCompile>
+    <ClCompile Include="TestManager.cpp">
+      <Filter>Content\Test</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
@@ -116,9 +125,21 @@
     <ClInclude Include="BotControlActionFactory.h">
       <Filter>Content\Action</Filter>
     </ClInclude>
-    <ClInclude Include="TestManager.h">
-      <Filter>Content</Filter>
-    </ClInclude>
     <ClInclude Include="GlobalSetting.h" />
+    <ClInclude Include="EnumParser.h">
+      <Filter>lib</Filter>
+    </ClInclude>
+    <ClInclude Include="ActionDefine.h">
+      <Filter>Content\Action</Filter>
+    </ClInclude>
+    <ClInclude Include="TestOptionManager.h">
+      <Filter>Content\Test</Filter>
+    </ClInclude>
+    <ClInclude Include="TestManager.h">
+      <Filter>Content\Test</Filter>
+    </ClInclude>
+    <ClInclude Include="TestDefine.h">
+      <Filter>Content\Test</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

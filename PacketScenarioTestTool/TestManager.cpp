@@ -9,30 +9,40 @@ TestManager::TestManager()
 TestManager::~TestManager()
 {
 
-	for (int i = 0; i < bot_count_; ++i) {
-		SAFE_DELETE( bot_list_[i]);
+	for (int i = 0; i < test_option_.bot_count; ++i) {
+		SAFE_DELETE(bot_list_[i]);
 	}
-	SAFE_DELETE_ARRAY (bot_list_);
+	SAFE_DELETE_ARRAY(bot_list_);
 }
 
-void TestManager::Start(const std::vector<ActionType>& action_list, int bot_count, int thrad_count, bool is_repeat)
+void TestManager::Init(const TestOption& test_option)
 {
-	action_list_ = action_list;
-	bot_count_ = bot_count;
-	is_repeat_ = is_repeat;
-	thread_count_ = thrad_count > bot_count ? bot_count : thrad_count;// 봇보다 스레드가 많으면 봇개수만큼 스레드 생성
+	test_option_.action_list	= test_option.action_list;
+	test_option_.bot_count		= test_option.bot_count;
+	test_option_.is_repeat		= test_option.is_repeat;
+	test_option_.thread_count	= test_option.thread_count > test_option.bot_count ? test_option.bot_count : test_option.thread_count;// 봇보다 스레드가 많으면 봇개수만큼 스레드 생성
+}
+
+void TestManager::Start()
+{
+	if (test_option_.action_list.empty())
+	{
+		LOG_ERROR(L"ActionList is Empty");
+		return;
+	}
+
 	is_running_ = true;
 
-	bot_list_ = new Bot* [bot_count_];
-	memset(bot_list_, 0, bot_count_ * sizeof(Bot*));
+	bot_list_ = new Bot * [test_option_.bot_count];
+	memset(bot_list_, 0, test_option_.bot_count * sizeof(Bot*));
 
 	// 스레드 생성
-	int bots_per_thread = bot_count_ / thread_count_;
+	int bots_per_thread = test_option_.bot_count / test_option_.thread_count;
 
-	for (int i = 0; i < thread_count_; ++i)
+	for (int i = 0; i < test_option_.thread_count; ++i)
 	{
 		int start_id = i * bots_per_thread;
-		int end_id = (i == thread_count_ - 1) ? bot_count_ : start_id + bots_per_thread;
+		int end_id = (i == test_option_.thread_count - 1) ? test_option_.bot_count : start_id + bots_per_thread;
 
 		// 각 스레드가 무한 루프 내에서 Update를 호출
 		threads_.emplace_back(&TestManager::ThreadLoop, this, start_id, end_id);
@@ -54,7 +64,7 @@ void TestManager::ThreadLoop(int start_id, int end_id)
 
 	while (is_running_)
 	{
-		if(is_pause_) continue;
+		
 
 		cur_time = Clock_t::now();
 		auto tick_diff = cur_time - pre_time;
@@ -66,10 +76,11 @@ void TestManager::ThreadLoop(int start_id, int end_id)
 
 		// 구역 순회
 		for (int i = start_id; i < end_id; ++i) {
+			while (is_pause_) { std::this_thread::sleep_for(frame_duration_); } // 일시정지면 무한루프 돌게하기
 			ControlState::EStatus status = bot_list_[i]->Update(dw_tick_diff);
 
 			// 시나리오 처음부터
-			if (status == ControlState::EStatus::Completed && is_repeat_)
+			if (status == ControlState::EStatus::Completed && test_option_.is_repeat)
 			{
 				PushScenario(i);
 			}
@@ -98,7 +109,7 @@ void TestManager::Stop()
 void TestManager::MonitorCurAction()
 {
 	std::map<ActionType, int> helper;
-	for (int i = 0; i < bot_count_; ++i)
+	for (int i = 0; i < test_option_.bot_count; ++i)
 	{
 		if (bot_list_[i] == nullptr) continue;
 
@@ -118,16 +129,20 @@ void TestManager::MonitorCurAction()
 	std::wstring monitor_msg = std::format(L"\nCurrent Action count:{}\n[Action\t:\tCount]\n", helper.size());
 	for (auto iter : helper)
 	{
-		monitor_msg += std::format(L"[{}\t:\t{}]\n", ActionTypeToString(iter.first), iter.second);
+		monitor_msg += std::format(L"[{}\t:\t{}]\n", EnumParser<ActionType, std::wstring>::EnumToString(iter.first), iter.second);
 	}
 
-	Logger::Instance().Log(LogLevel::Info, monitor_msg);
-//		LOG_INFO(monitor_msg);
+	LOG_INFO(L"{}", monitor_msg);
 }
 
 void TestManager::PushScenario(int bot_index)
 {
-	for (auto iter : action_list_)
+	if (test_option_.action_list.empty())
+	{
+		LOG_ERROR(L"ActionList is Empty");
+		return;
+	}
+	for (auto iter : test_option_.action_list)
 	{
 		bot_list_[bot_index]->PushAction(iter);
 	}

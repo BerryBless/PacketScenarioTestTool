@@ -3,6 +3,7 @@
 #include "Logger.h"
 #include "FileLogger.h"
 #include "TestManager.h"
+#include "TestOptionManager.h"
 int main()
 {
 	FileLogger::Instance().Init(L"test", L"log");
@@ -10,14 +11,17 @@ int main()
 
 	Logger::Instance().SetLogLevel(LogLevel::Info);
 
-	TestManager manager;
+	TestOptionManager option_manager;
+	TestManager test_manager;
 
-	std::vector<ActionType> test_list = { ActionType::LogIn, ActionType::Action_A, ActionType::Action_B };
+	option_manager.LoadSetting(L"");
 
-	manager.Start(test_list, 10000000, std::thread::hardware_concurrency(), true);
+	test_manager.Init(option_manager.GetTestOption());
+
+	test_manager.Start();
 	while (true)
 	{
-		manager.MonitorCurAction();
+		test_manager.MonitorCurAction();
 		Sleep(1000);
 	}
 

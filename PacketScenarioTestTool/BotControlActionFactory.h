@@ -1,5 +1,5 @@
 #pragma once
-
+#include "ActionDefine.h"
 class BotControlState;
 
 class BotControlActionFactory
