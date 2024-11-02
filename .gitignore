@@ -34,3 +34,5 @@
 /PacketScenarioTestTool/x64
 /TestServer/x64
 /x64
+/Output
+*.pdb
