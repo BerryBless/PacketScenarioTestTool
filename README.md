@@ -14,8 +14,9 @@ BotController에 등록하여 해당 Action을 실행하도록 설계했습니�
 엑션(테스트 시나리오) 추가
 1. ActionType에 Action_A 타입 추가
 
-ActionDefine.h
 ```
+//ActionDefine.h
+
 enum class ActionType
 {
 	...
@@ -53,8 +54,8 @@ public:
 ```
 
 3. BotControlActionFactory::CreateState 에 ActionType::Action_A과 BotAction_A 클레스 이어주기
-BotControlActionFactory.cpp
 ```
+//BotControlActionFactory.cpp
 BotControlState* BotControlActionFactory::CreateState(ActionType action_type)
 {
 	BotControlState* control_state = nullptr;
@@ -72,8 +73,8 @@ BotControlState* BotControlActionFactory::CreateState(ActionType action_type)
 
 이벤트 추가
 1. ActionEventType에 Action_A에서 일어날 이벤트 A_Event_1 추가
-ActionDefine.h
 ```
+//ActionDefine.h
 enum class ActionEventType
 {
 ...
@@ -102,8 +103,8 @@ public:
 
 3. BotAction_A 클레스에서 OnEventA_Event_1(BotControlEvent_A_Event_1* control_event)작성후 OnActionEvent() 메소드 수정
 
-BotControlAction.h
 ```
+//BotControlAction.h
 ///////////////////////////////////////////////////////////////////////////////////////////
 // BotAction_A
 ///////////////////////////////////////////////////////////////////////////////////////////
@@ -122,8 +123,8 @@ private:
 
 ```
 
-BotControlAction.cpp
 ```
+//BotControlAction.cpp
 ControlState::EStatus BotAction_A::OnActionEvent(BotControlEvent* control_event)
 {
 ...
@@ -155,7 +156,7 @@ void BotAction_A::OnEventA_Event_1(BotControlEvent_A_Event_1* control_event)
 ```
 
 
- 테스트 진행시 실행 순서
+테스트 진행시 실행 플로우
  1. 설정 파일 Test.json를 불러와 테스트할 action_list 를 불러옴
  2. 봇을 스레드마다 균등하게 분배해 생성
- 3. 생성할 봇마다 action_list을 넣고 실행
+ 3. 생성할 봇마다 action_list을 넣고 액션을 실행
