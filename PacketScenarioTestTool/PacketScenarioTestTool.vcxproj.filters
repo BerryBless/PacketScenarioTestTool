@@ -10,9 +10,6 @@
     <Filter Include="Main">
       <UniqueIdentifier>{bbe49c1d-5523-4881-8c05-3db6c3b2a5ce}</UniqueIdentifier>
     </Filter>
-    <Filter Include="lib\Network">
-      <UniqueIdentifier>{0aec2689-6936-44d7-9a6d-ea2d80fd530e}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Content\ControlScript">
       <UniqueIdentifier>{17f38e9b-6c5c-49e2-8888-df4aa81684e3}</UniqueIdentifier>
     </Filter>
@@ -31,6 +28,9 @@
     <Filter Include="Content\Test">
       <UniqueIdentifier>{ee686ed6-2f2e-4e7b-be0c-dc96bc3cf260}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Content\Network">
+      <UniqueIdentifier>{0aec2689-6936-44d7-9a6d-ea2d80fd530e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -39,12 +39,6 @@
     <ClCompile Include="pch.cpp" />
     <ClCompile Include="ControlState.cpp">
       <Filter>Content\ControlScript</Filter>
-    </ClCompile>
-    <ClCompile Include="BotController.cpp">
-      <Filter>Content\Bot</Filter>
-    </ClCompile>
-    <ClCompile Include="BotControlState.cpp">
-      <Filter>Content\Bot</Filter>
     </ClCompile>
     <ClCompile Include="Bot.cpp">
       <Filter>Content\Bot</Filter>
@@ -75,7 +69,7 @@
       <Filter>Content\Test</Filter>
     </ClCompile>
     <ClCompile Include="ClientBase.cpp">
-      <Filter>lib\Network</Filter>
+      <Filter>Content\Network</Filter>
     </ClCompile>
     <ClCompile Include="CrashDump.cpp">
       <Filter>lib</Filter>
@@ -84,6 +78,12 @@
       <Filter>Content\Bot</Filter>
     </ClCompile>
     <ClCompile Include="ControlEventReceiver.cpp">
+      <Filter>Content\Action</Filter>
+    </ClCompile>
+    <ClCompile Include="BotControlState.cpp">
+      <Filter>Content\Action</Filter>
+    </ClCompile>
+    <ClCompile Include="BotController.cpp">
       <Filter>Content\Action</Filter>
     </ClCompile>
   </ItemGroup>
@@ -97,12 +97,6 @@
     </ClInclude>
     <ClInclude Include="Define.h">
       <Filter>lib</Filter>
-    </ClInclude>
-    <ClInclude Include="BotControlState.h">
-      <Filter>Content\Bot</Filter>
-    </ClInclude>
-    <ClInclude Include="BotController.h">
-      <Filter>Content\Bot</Filter>
     </ClInclude>
     <ClInclude Include="Bot.h">
       <Filter>Content\Bot</Filter>
@@ -145,12 +139,18 @@
       <Filter>Content\Test</Filter>
     </ClInclude>
     <ClInclude Include="ClientBase.h">
-      <Filter>lib\Network</Filter>
+      <Filter>Content\Network</Filter>
     </ClInclude>
     <ClInclude Include="GameClient.h">
       <Filter>Content\Bot</Filter>
     </ClInclude>
     <ClInclude Include="ControlEventReceiver.h">
+      <Filter>Content\Action</Filter>
+    </ClInclude>
+    <ClInclude Include="BotControlState.h">
+      <Filter>Content\Action</Filter>
+    </ClInclude>
+    <ClInclude Include="BotController.h">
       <Filter>Content\Action</Filter>
     </ClInclude>
   </ItemGroup>

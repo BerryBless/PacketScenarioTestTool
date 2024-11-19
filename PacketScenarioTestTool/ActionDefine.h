@@ -34,7 +34,7 @@ std::unordered_map<std::wstring, ActionType> EnumParser<ActionType, std::wstring
 enum class ActionEventType
 {
 	// Action A 에서 일어날 이벤트
-	Action_A_1 = 1000,
+	A_Event_1 = 1000,
 	Action_A_2,
 	Action_A_3,
 	// Action B 에서 일어날 이벤트

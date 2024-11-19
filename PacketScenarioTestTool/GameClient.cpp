@@ -13,7 +13,7 @@ void GameClient::Update(DWORD tick_diff)
 	count += tick_diff;
 	if (count > 10000)
 	{
-		owner_bot_->OnActionEvent(new BotControlEvent_Action_A_1("test"));
+		owner_bot_->OnActionEvent(new BotControlEvent_A_Event_1("test"));
 		count = 0;
 	}
 }

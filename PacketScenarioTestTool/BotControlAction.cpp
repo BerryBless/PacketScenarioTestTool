@@ -48,8 +48,8 @@ ControlState::EStatus BotAction_A::OnActionEvent(BotControlEvent* control_event)
 
 	switch (control_event->GetEventType())
 	{
-	case ActionEventType::Action_A_1:
-		OnEventAction_A_1(static_cast<BotControlEvent_Action_A_1*> (control_event));
+	case ActionEventType::A_Event_1:
+		OnEventA_Event_1(static_cast<BotControlEvent_A_Event_1*> (control_event));
 		break;
 	case ActionEventType::Action_A_2:
 		OnEventAction_A_2(static_cast<BotControlEvent_Action_A_2*> (control_event));
@@ -61,7 +61,7 @@ ControlState::EStatus BotAction_A::OnActionEvent(BotControlEvent* control_event)
 	return GetStatus();
 }
 
-void BotAction_A::OnEventAction_A_1(BotControlEvent_Action_A_1* control_event)
+void BotAction_A::OnEventA_Event_1(BotControlEvent_A_Event_1* control_event)
 {
 	if (control_event == nullptr)
 	{
@@ -69,7 +69,7 @@ void BotAction_A::OnEventAction_A_1(BotControlEvent_Action_A_1* control_event)
 		return ;
 	}
 
-	LOG_DEBUG("OnEventAction_A_1)  {}", control_event->event_content_.c_str());
+	LOG_DEBUG("OnEventA_Event_1)  {}", control_event->event_content_.c_str());
 
 
 	SetStatus(ControlState::EStatus::Activated);
@@ -130,8 +130,8 @@ ControlState::EStatus BotAction_B::OnActionEvent(BotControlEvent* control_event)
 
 	switch (control_event->GetEventType())
 	{
-	case ActionEventType::Action_A_1:
-		//OnEventAction_A_1(static_cast<BotControlEvent_Action_A_1*> (control_event));
+	case ActionEventType::A_Event_1:
+		//OnEventA_Event_1(static_cast<BotControlEvent_A_Event_1*> (control_event));
 		break;
 	case ActionEventType::Action_A_2:
 		//OnEventAction_A_2(static_cast<BotControlEvent_Action_A_2*> (control_event));
@@ -193,8 +193,8 @@ ControlState::EStatus BotAction_LogIn::OnActionEvent(BotControlEvent* control_ev
 
 	switch (control_event->GetEventType())
 	{
-	case ActionEventType::Action_A_1:
-		//OnEventAction_A_1(static_cast<BotControlEvent_Action_A_1*> (control_event));
+	case ActionEventType::A_Event_1:
+		//OnEventA_Event_1(static_cast<BotControlEvent_A_Event_1*> (control_event));
 		break;
 	case ActionEventType::Action_A_2:
 		//OnEventAction_A_2(static_cast<BotControlEvent_Action_A_2*> (control_event));

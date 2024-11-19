@@ -72,7 +72,7 @@ public:
 
 private:
 	// 이벤트 A_1가 왔을때 OnActionEvent에서 호출
-	void		OnEventAction_A_1(BotControlEvent_Action_A_1* control_event);
+	void		OnEventA_Event_1(BotControlEvent_A_Event_1* control_event);
 	// 이벤트 A_2가 왔을때 OnActionEvent에서 호출
 	void		OnEventAction_A_2(BotControlEvent_Action_A_2* control_event);
 

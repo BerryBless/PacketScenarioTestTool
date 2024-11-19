@@ -40,12 +40,12 @@ public:
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////
-// BotControlEvent_Action_A_1
+// BotControlEvent_A_Event_1
 ///////////////////////////////////////////////////////////////////////////////////////////
-class BotControlEvent_Action_A_1 : public TBotControllEvent<ActionEventType::Action_A_1>
+class BotControlEvent_A_Event_1 : public TBotControllEvent<ActionEventType::A_Event_1>
 {
 public:
-	BotControlEvent_Action_A_1(std::string event_content) :
+	BotControlEvent_A_Event_1(std::string event_content) :
 		event_content_(event_content){}
 
 public:
