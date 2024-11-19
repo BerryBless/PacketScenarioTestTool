@@ -2,11 +2,11 @@
 #include "BotControlActionFactory.h"
 #include "BotControlAction.h"
 
-BotControlState* BotControlActionFactory::CreateState(ActionType id)
+BotControlState* BotControlActionFactory::CreateState(ActionType action_type)
 {
 	BotControlState* control_state = nullptr;
 	
-	switch (id)
+	switch (action_type)
 	{
 	case ActionType::LogIn:		control_state = new BotAction_LogIn();		break;
 	case ActionType::Action_A:		control_state = new BotAction_A();		break;

@@ -2,6 +2,9 @@
 #include "BotControlState.h"
 #include "ControlEventReceiver.h"
 
+//-------------------------------------------------------------------------------------------------------------
+// 엑션 템플릿 만들기
+//-------------------------------------------------------------------------------------------------------------
 class BotControlAction : public BotControlState
 {
 public:
@@ -53,19 +56,28 @@ class BotAction_A : public TBotControlAction<ActionType::Action_A>
 {
 
 public:
+	// 시작 준비
 	void		OnAttached() override;
+	// 소멸 할때
 	void		OnDetached() override;
+
+	// 시작 할때
 	void		OnEnter() override;
+	// 끝날때
 	void		OnExit() override;
+	// 업에이트
 	EStatus		OnUpdate(DWORD tick_diff) override;
+	// 엑션에 이벤트가 올때
 	EStatus		OnActionEvent(BotControlEvent* control_event) override;
 
 private:
-	// 이벤트
+	// 이벤트 A_1가 왔을때 OnActionEvent에서 호출
 	void		OnEventAction_A_1(BotControlEvent_Action_A_1* control_event);
+	// 이벤트 A_2가 왔을때 OnActionEvent에서 호출
 	void		OnEventAction_A_2(BotControlEvent_Action_A_2* control_event);
 
 private:
+	// 업데이트 테스트용 변수
 	int cnt = 0;
 };
 
