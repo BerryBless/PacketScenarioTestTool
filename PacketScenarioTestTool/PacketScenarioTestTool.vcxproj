@@ -206,11 +206,6 @@
     <ClCompile Include="TestOptionManager.cpp" />
     <ClCompile Include="TextFile.cpp" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ServerCoreLib\ServerCoreLib.vcxproj">
-      <Project>{984db5cb-06af-408a-9fcf-d6a5a2b92f60}</Project>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
