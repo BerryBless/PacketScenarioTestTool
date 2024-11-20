@@ -14,14 +14,14 @@ int main()
 	TestOptionManager option_manager;
 	TestManager test_manager;
 
-	option_manager.LoadSetting(L"Test.json");
+	option_manager.LoadSetting(L"test.json");
 
  	test_manager.Init(option_manager.GetTestOption());
  
  	test_manager.Start();
  	while (true)
  	{
- 		//test_manager.MonitorCurAction();
+ 		test_manager.MonitorCurAction();
  		Sleep(1000);
  	}
 	
